@@ -1,24 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import CreateNote from "./components/CreateNote";
+import HomePage from "./components/HomePage";
+import EditNote from "./components/EditNote";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Signin from "./components/AuthForms/Signin";
+import Login from "./components/AuthForms/Login";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<HomePage />}></Route>
+        <Route path="/create" element={<CreateNote />}></Route>
+        <Route path="/edit/:id" element={<EditNote />}></Route>
+        <Route path="/delete/:id" element={<CreateNote />}></Route>
+        <Route path="/signin" element={<Signin />}></Route>
+        <Route path="/login" element={<Login />}></Route>
+      </Routes>
+    </BrowserRouter>
   );
 }
 
