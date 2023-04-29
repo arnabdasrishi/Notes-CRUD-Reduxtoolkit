@@ -18,16 +18,19 @@ const Signin = () => {
   };
 
   return (
-    <div>
-      <h2>Create an Account</h2>
-
-      <form onSubmit={handleSignin}>
+    <div className="d-flex w-100 vh-50 justify-content-center align-item-center mt-4">
+      <form
+        className="w-50 border bg-dark text-white p-5 rounded"
+        onSubmit={handleSignin}
+      >
         <div>
+          <h2>Create an Account</h2>
           <label htmlFor="">Email</label>
           <input
             type="text"
             placeholder="enter email"
             value={email}
+            className="form-control"
             onChange={(e) => setEmail(e.target.value)}
           />
         </div>
@@ -37,15 +40,22 @@ const Signin = () => {
             type="text"
             placeholder="enter password"
             value={password}
+            className="form-control"
             onChange={(e) => setPassword(e.target.value)}
           />
         </div>
         <div>
           <label htmlFor="">Re Enter Password</label>
-          <input type="text" placeholder="re enter password" />
+          <input
+            type="text"
+            className="form-control"
+            placeholder="re enter password"
+          />
         </div>
 
-        <button type="submit">Signup</button>
+        <button className="btn btn-warning my-3" type="submit">
+          Signup
+        </button>
       </form>
     </div>
   );

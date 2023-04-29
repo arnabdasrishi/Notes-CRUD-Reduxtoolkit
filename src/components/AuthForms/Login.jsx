@@ -11,8 +11,7 @@ const Login = () => {
 
   const disptch = useDispatch();
   const loginVerify = useSelector((state) => state.auth);
-  const navigate = useNavigate()
-
+  const navigate = useNavigate();
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -23,22 +22,26 @@ const Login = () => {
       })
       .catch((err) => console.log(err));
 
-      if(loginVerify){
-        alert("Login successful")
-        navigate("/")
-      }
+    if (loginVerify) {
+      alert("Login successful");
+      navigate("/");
+    }
   };
 
   return (
-    <div>
-      <h2>Login</h2>
-
-      <form onSubmit={handleLogin}>
+    <div className="d-flex w-100 vh-50 justify-content-center align-item-center mt-4">
+      <form
+        className="w-50 border bg-dark text-white p-5 rounded"
+        onSubmit={handleLogin}
+      >
         <div>
+          <h2>Login</h2>
+
           <label htmlFor="">Email</label>
           <input
             type="text"
             placeholder="enter email"
+            className="form-control"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           />
@@ -49,11 +52,14 @@ const Login = () => {
             type="text"
             placeholder="enter password"
             value={password}
+            className="form-control"
             onChange={(e) => setPassword(e.target.value)}
           />
         </div>
 
-        <button type="submit">Login</button>
+        <button className="btn btn-success my-3" type="submit">
+          Login
+        </button>
       </form>
     </div>
   );
