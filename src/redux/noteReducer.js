@@ -1,10 +1,9 @@
-import { note } from "../Data";
 
 const { createSlice } = require("@reduxjs/toolkit");
 
 const noteSlice = createSlice({
   name: "notes",
-  initialState: note,
+  initialState: [],
   reducers: {
     addNote: (state, action) => {
       state.push(action.payload);

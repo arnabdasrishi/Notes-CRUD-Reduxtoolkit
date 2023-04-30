@@ -9,7 +9,7 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const disptch = useDispatch();
+  const dispatch = useDispatch();
   const loginVerify = useSelector((state) => state.auth);
   const navigate = useNavigate();
 
@@ -17,15 +17,14 @@ const Login = () => {
     e.preventDefault();
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredentials) => {
-        disptch(getToken({ userCredentials }));
+        dispatch(getToken({ userCredentials }));
         console.log(userCredentials);
+        if (userCredentials && userCredentials.user.email) {
+          alert("Login successful");
+          navigate("/");
+        }
       })
       .catch((err) => console.log(err));
-
-    if (loginVerify) {
-      alert("Login successful");
-      navigate("/");
-    }
   };
 
   return (
@@ -49,7 +48,7 @@ const Login = () => {
         <div>
           <label htmlFor="">Password</label>
           <input
-            type="text"
+            type="password"
             placeholder="enter password"
             value={password}
             className="form-control"

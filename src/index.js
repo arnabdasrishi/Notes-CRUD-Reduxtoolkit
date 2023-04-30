@@ -8,17 +8,20 @@ import noteReducer from "./redux/noteReducer";
 
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import authReducer from "./redux/authReducer";
+import { BrowserRouter } from "react-router-dom";
 
 const store = configureStore({
   reducer: {
     notes: noteReducer,
-    auth: authReducer
+    auth: authReducer,
   },
 });
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <Provider store={store}>
-    <App />
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
   </Provider>
 );
